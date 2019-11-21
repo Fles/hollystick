@@ -1,11 +1,12 @@
 const fs = require('fs')
 const path = require('path')
+const getUrls = require('get-urls')
 
 const filesDir = path.join(__dirname, '..', 'files/')
 
 const handleErr = err => console.log(err)
 
-const handleData = data => console.log(data)
+const handleData = data => getUrls(data).forEach(url => console.log(url))
 
 const handleFiles = files => {
     files.forEach(file => {
